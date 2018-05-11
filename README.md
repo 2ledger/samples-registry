@@ -1,8 +1,6 @@
-[![2Ledger Logo](http://admin.2ledger.com/assets/img/logo-color-beta.png)](http://www.2ledger.com/)
+# Sample Client Management Project
 
-# Sample Registry
-
-This project aims to demonstrate the operation of a document/digital file registry in a distributed ledger using the [2Ledger](http://www.2ledger.com/) blockchain platform API. It's available on [http://demo.2ledger.com/registry](http://demo.2ledger.com/registry).
+This project aims to demonstrate the operation of a simple customer registry using the [2Ledger](http://www.2ledger.com/) blockchain platform API. It's available on [http://demo.2ledger.com/client-management](http://demo.2ledger.com/client-management).
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -36,7 +34,7 @@ To install this project is very simple. Just clone the project, download your li
 #### Cloning the project
 
 ```bash
-git clone https://github.com/2ledger/samples-registry.git
+git clone https://github.com/2ledger/samples-client-management.git
 ```
 
 #### Downloading the libraries
@@ -54,3 +52,4 @@ npm start
 ## License
 
 This project is licensed under the MIT License.
+

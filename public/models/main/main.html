@@ -1,0 +1,116 @@
+<div ng-controller="main as cx" layout="column" class="container-fluid screenManager" style="height: calc(100vh - 113px);">
+    <div layout="row" class="alert" style="left: calc(50% - 43px);background-color: #8BC34A;">
+        <div layout="row" style="    width: 50px;height: 39px;border-radius: 50px;position: relative;color: #FFFFFF;    padding-top: 6px; padding-left: 3px;">
+            <i class="fa fa-check" aria-hidden="true" style="font-size: 49px;width: 50px;"></i>
+            <div flex style="    min-width: 184px;    font-weight: 700;    font-size: 13px;    margin-top: 10px;    margin-left: 20px; margin-right: 10px;">{{cx.responseText}}</div>
+        </div>
+    </div>
+
+
+
+    <div class="formFields formMain">
+        <div layout="row" style="justify-content: center;">
+
+            <div class="localFields">
+                <div class="boxUpload" ng-disabled="cx.showWaiting == true" style="    margin-bottom: 10px;background-color: #FFFFFF; width: 403px; height: 94px; border-radius: 3px;border: 2px dashed #1579be8c;"
+                    ng-click="cx.onMouseDownUpload()">
+                    <div  layout="row"  layout-align='center' style="    transform: translate(-50%,-50%); top: 50%; left: 50%; position: relative; text-align: center;">
+                        <i class="fa fa-arrow-down" aria-hidden="true" style="    color: #afdae8;    margin-right: 4px; font-size: 21px;"></i>                        Drop your document here
+                        <div>
+                        <i class="fa fa-circle-o-notch fa-spin cmpSpinDrop" aria-hidden="true" style="color: #2d9fc3;font-size: 19px;    margin-left: 7px;"></i>
+                        </div>
+                    </div>
+                    <div style="    text-align: center;margin-top: 35px;font-size: 11px;color: #2d9fc3;">{{cx.filename}}</div>
+            </div>
+
+            <div class="cmpNotFound" style="position: relative;text-align: center;width: 403px; height: 0px; border-radius: 3px;">
+                <div style="background-color: #FFFFFF;    padding-bottom: 12px;">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true" style="    font-size: 43px;margin-top: 18px;color: #2d9fc361;"></i>
+                    <div style="    text-align: center;font-weight: bold;font-size: 20px;    margin-top: 4px;">Unknown Document.</div>
+                    <div style="    text-align: center;    margin-bottom: 12px;">Register this document?</div>
+                    <button class="buttomApp" style="    width: 82px;" ng-click="cx.registerDocument()">Yes</button>
+                    <button class="buttomApp" style="    width: 82px;" ng-click="cx.cancelNotFound()">No</button>
+                </div>
+            </div>
+
+            <div class="fileupload" style="display:none">
+                <input class="cmpUpload" type="file" />
+            </div>
+
+            <div class="cmpRegister" style="position: relative;text-align: center;background-color: #FFFFFF; width: 403px; padding-bottom: 3px;border-radius: 3px;height:0px">
+                <div flex ng-show="cx.showWaiting == true" layout="row" style="text-align: center;height:414px;background-color: #FFFFFF;left: 200px;width: 100%;z-index: 99999;">
+                    <div style="    width: 50px;height: 39px;border-radius: 50px;transform: translate(-50%,-50%);top: 50%;margin-top: -23px;left: 50%;position: relative;">
+                        <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true" style="color: #2d9fc3;font-size: 49px;"></i>
+                        <div class="loadingText" style="opacity: 0; margin-left: -53px;    width: 153px;">{{cx.loadingText}}</div>
+                    </div>
+                </div>
+                <div flex ng-show="cx.showWaiting == false" style="height:414px;    background-color: #FFFFFF;">
+                    <div flex layout="row" style="padding-top: 12px;margin-bottom: 15px;">
+                        <i class="fa fa-file-text-o" aria-hidden="true" style="    font-size: 27px;margin-left: 22px;color: #2d9fc361;margin-right: 8px;padding-top: 4px;"></i>
+                        <div style="    text-align: center;font-weight: bold;font-size: 17px;margin-top: 7px;">Add New Document</div>
+                    </div>
+
+                    <div class="labelForm">Author</div>
+                    <input ng-model="cx.author" style="width: 359px;">
+                    <div class="labelForm">Title</div>
+                    <input ng-model="cx.title" style="width: 359px;">
+                    <div class="labelForm">Description</div>
+                    <textarea ng-model="cx.description" style="width: 359px;height: 75px; "></textarea>
+                    <div class="labelForm">Hash</div>
+                    <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;    margin-bottom: 10px;">{{cx.hash}}</div>
+                    <button class="buttomApp" style="    width: 82px;" ng-click="cx.addDocument()">Register</button>
+                    <button class="buttomApp" style="    width: 82px;    margin-bottom: 10px;" ng-click="cx.cancelRegister()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="cmpDocument" style="    min-height: 327px;position: relative;text-align: center;background-color: #FFFFFF; width: 403px; padding-bottom: 3px; border-radius: 3px;">
+                <div style="height:100px;">
+                    <div class="cmpLogoDocument" style="    display: none;overflow: hidden;background-color: #0e2232;position: absolute; width: 100%;">
+                        <img src="http://www.2ledger.com/img/logos/logo-2ledger-w.png" style="    width: 154px;margin-top: 15px;margin-bottom: 15px;">
+                    </div>
+
+                    <div flex ng-show="cx.showWaitingPop == true" layout="row" style="text-align: center;height:458px;background-color: #FFFFFF;left: 200px;width: 100%;z-index: 99999;">
+                        <div style="    width: 50px;height: 39px;border-radius: 50px;transform: translate(-50%,-50%);top: 50%;margin-top: -23px;left: 50%;position: relative;">
+                            <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true" style="color: #2d9fc3;font-size: 49px;"></i>
+                            <div class="loadingText" style="opacity: 0; margin-left: -53px;    width: 153px;">{{cx.loadingText}}</div>
+                        </div>
+                    </div>
+                    <div flex ng-show="cx.showWaitingPop == false">
+
+                        <div class="cmpDetailsError" ng-show="cx.showOnknow == true" style="    padding-top: 50%;">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="    font-size: 43px;margin-top: 18px;color: #2d9fc361;"></i>
+                            <div style="    text-align: center;font-weight: bold;font-size: 20px;    margin-top: 4px;">Unknown Document.</div>
+                        </div>
+
+                        <div flex ng-show="cx.showWaitingPop == true" layout="row" style="text-align: center;height:458px;background-color: #FFFFFF;left: 200px;width: 100%;z-index: 99999;">
+                            <div style="    width: 50px;height: 39px;border-radius: 50px;transform: translate(-50%,-50%);top: 50%;margin-top: -23px;left: 50%;position: relative;">
+                                <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true" style="color: #2d9fc3;font-size: 49px;"></i>
+                                <div class="loadingText" style="opacity: 0; margin-left: -53px;    width: 153px;">{{cx.loadingText}}</div>
+                            </div>
+                        </div>
+
+                        <div class="cmpDetailsDoc" style="width: 405px;" ng-show="cx.showOnknow == false">
+                            <div flex layout="row" style="padding-top: 12px;margin-bottom: 15px;">
+                                <i class="fa fa-file-text-o" aria-hidden="true" style="    font-size: 27px;margin-left: 22px;color: #2d9fc361;margin-right: 8px;padding-top: 4px;"></i>
+                                <div style="    text-align: center;font-weight: bold;font-size: 20px;    margin-top: 4px;">Document Details</div>
+                            </div>
+                            <div class="labelForm">Register Date</div>
+                            <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;">{{cx.dateRegister | date:"dd-MM-yyyy HH:mm"}}</div>
+                            <div class="labelForm">Author</div>
+                            <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;">{{cx.author}}</div>
+                            <div class="labelForm">Title</div>
+                            <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;">{{cx.title}}</div>
+                            <div class="labelForm">Description</div>
+                            <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;">{{cx.description}}</div>
+                            <div id="qrcode" style="position: relative; top: -204px; left: 304px;height: 0px;"></div>
+                            <div class="labelForm">Hash</div>
+                            <div style="width: 359px;text-align: left;padding-left: 24px;margin-top: -5px;color: #247494;    margin-bottom: 10px;">{{cx.hash}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
