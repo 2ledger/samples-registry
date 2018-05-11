@@ -1,3 +1,5 @@
+[![2Ledger Logo](http://admin.2ledger.com/assets/img/logo-color-beta.png)](http://www.2ledger.com/)
+
 # Sample Registry
 
 This project aims to demonstrate the operation of a document/digital file registry in a distributed ledger using the [2Ledger](http://www.2ledger.com/) blockchain platform API. It's available on [http://demo.2ledger.com/client-registry](http://demo.2ledger.com/client-registry).
