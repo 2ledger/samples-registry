@@ -2,7 +2,7 @@
 
 # Sample Registry
 
-This project aims to demonstrate the operation of a document/digital file registry in a distributed ledger using the [2Ledger](http://www.2ledger.com/) blockchain platform API. It's available on [http://demo.2ledger.com/client-registry](http://demo.2ledger.com/client-registry).
+This project aims to demonstrate the operation of a document/digital file registry in a distributed ledger using the [2Ledger](http://www.2ledger.com/) blockchain platform API. It's available on [http://demo.2ledger.com/registry](http://demo.2ledger.com/registry).
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
