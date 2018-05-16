@@ -135,7 +135,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
         var rest = {
             method: 'POST',
-            url: "/registry/searchDocument",
+            url: "searchDocument",
             headers: { 'Content-Type': 'application/json' },
             data: {
                 document: me.hash
@@ -253,7 +253,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
         me.clients = [];
         var rest = {
             method: 'POST',
-            url: "/registry/addDocument",
+            url: "addDocument",
             headers: { 'Content-Type': 'application/json' },
             data: {
                 id: me.hash,
@@ -271,7 +271,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
             me.showWaitingPop = false;
             me.showWaiting = false;
 
-            me.showAlert('Document successiful registered');
+            me.showAlert('Document successfully registered');
 
         }, function (err) {
 
@@ -296,7 +296,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
     me.getToken = function () {
         var rest = {
             method: 'GET',
-            url: "/registry/getToken/",
+            url: "getToken",
             headers: { 'Content-Type': 'application/json' },
         }
 
