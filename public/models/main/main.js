@@ -168,7 +168,9 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
 
         }, function (err) {
-
+            me.showError(err.data.error_message);
+            me.showWaitingBox = false;
+            me.showWaitingPop = false;
             console.log(err);
         });
     }
@@ -274,7 +276,9 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
             me.showAlert('Document successfully registered');
 
         }, function (err) {
-
+            me.showError(err.data.error_message);
+            me.showWaiting = false;
+            me.showWaitingPop = false;
             console.log(err);
         });
 
@@ -302,6 +306,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
         $http(rest).then(function (e) {
         }, function (err) {
+            me.showError(err.data.error_message);      
             console.log(err);
         });
     }
