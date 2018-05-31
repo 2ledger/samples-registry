@@ -12,7 +12,7 @@ module.exports = function (app) {
 	///////////////////////////////////////////////////////////////////////
 	function chamadaGET(path) {
 		return new Promise((resolve, reject) => {
-			var auth = global.cfg.API_2LEDGER_TOKEN;
+			var auth = 'Bearer ' + global.cfg.API_2LEDGER_TOKEN;
 
 			const options = {
 				hostname: global.cfg.API_2LEDGER,
@@ -20,7 +20,7 @@ module.exports = function (app) {
 				path: '/v1' + path,
 				headers: {
 					'Content-Type': 'application/json',
-					'X-JWT-Assertion': auth
+					'Authorization': auth
 				}
 			};
 
@@ -49,7 +49,7 @@ module.exports = function (app) {
 	///////////////////////////////////////////////////////////////////////
 	function chamadaDELETE(path) {
 		return new Promise((resolve, reject) => {
-			var auth = global.cfg.API_2LEDGER_TOKEN;
+			var auth = 'Bearer ' + global.cfg.API_2LEDGER_TOKEN;
 
 			const options = {
 				hostname: global.cfg.API_2LEDGER,
@@ -57,7 +57,7 @@ module.exports = function (app) {
 				path: '/v1' + path,
 				headers: {
 					'Content-Type': 'application/json',
-					'X-JWT-Assertion': auth
+					'Authorization': auth
 				}
 			};
 
@@ -86,7 +86,7 @@ module.exports = function (app) {
 	///////////////////////////////////////////////////////////////////////
 	function chamadaPOST(path, data) {
 		return new Promise((resolve, reject) => {
-			var auth = global.cfg.API_2LEDGER_TOKEN;
+			var auth = 'Bearer ' + global.cfg.API_2LEDGER_TOKEN;
 
 			const options = {
 				hostname: global.cfg.API_2LEDGER,
@@ -94,7 +94,7 @@ module.exports = function (app) {
 				path: '/v1' + path,
 				headers: {
 					'Content-Type': 'application/json',
-					'X-JWT-Assertion': auth
+					'Authorization': auth
 				}
 			};
 
@@ -131,7 +131,8 @@ module.exports = function (app) {
 				method: 'POST',
 				path: '/v1/login',
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					'Authorization': 'Basic ' + global.cfg.API_2LEDGER_BASIC_LOGIN
 				}
 			};
 
