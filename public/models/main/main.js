@@ -136,7 +136,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
         var rest = {
             method: 'POST',
-            url: "/searchDocument",
+            url: "searchDocument",
             headers: { 'Content-Type': 'application/json' },
             data: {
                 document: me.hash
@@ -256,7 +256,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
         me.clients = [];
         var rest = {
             method: 'POST',
-            url: "/addDocument",
+            url: "addDocument",
             headers: { 'Content-Type': 'application/json' },
             data: {
                 id: me.hash,
@@ -317,7 +317,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
     me.getToken = function () {
         var rest = {
             method: 'GET',
-            url: "/getToken",
+            url: "getToken",
             headers: { 'Content-Type': 'application/json' },
         }
 
