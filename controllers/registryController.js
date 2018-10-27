@@ -184,6 +184,8 @@ module.exports = function (app) {
 
 				if (client.success == 'false')
 					res.send({ type: 'error', message: 'unknown document' });
+				else if (client.success == 'true' && !client.response)
+                                        res.send({ type: 'error', message: 'unknown document' });
 				else 
 					res.send({ type: 'success', data: client.response.value });
 			})
