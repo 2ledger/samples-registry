@@ -14,7 +14,8 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
     $('.alert').css({ 'margin-top': '-300px' });
     $('.boxClient').css({ 'margin-top': '-800px' });
-    
+    $('.error').css({ 'margin-top': '-300px' });
+
     $('.cmpNotFound').css({ top: 1500 });
     $('.cmpRegister').css({ top: 1500 });
     $('.cmpDocument').css({ top: 1500 });
@@ -168,7 +169,9 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
 
         }, function (err) {
-
+            me.showError(err.data.error_message);
+            me.showWaitingBox = false;
+            me.showWaitingPop = false;
             console.log(err);
         });
     }
@@ -274,7 +277,9 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
             me.showAlert('Document successfully registered');
 
         }, function (err) {
-
+            me.showError(err.data.error_message);
+            me.showWaiting = false;
+            me.showWaitingPop = false;
             console.log(err);
         });
 
@@ -292,7 +297,23 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
         me.hideRegisterDocument();
     }
 
+    me.showError = function (text) {
+        me.errorMessage = text;
 
+        $('.error').animate({ 'margin-top': '3px' }, 100);
+
+        me.timerErro = setTimeout(function () {
+            me.hideError();
+        }, 6000)
+
+    }
+
+    me.hideError = function (text) {
+        clearTimeout(me.timerErro);
+
+        $('.error').animate({ 'margin-top': '-300px' }, 100);
+    }
+    
     me.getToken = function () {
         var rest = {
             method: 'GET',
@@ -302,6 +323,7 @@ function main($scope, $http, $rootScope, $timeout, $filter, ngTableParams, $loca
 
         $http(rest).then(function (e) {
         }, function (err) {
+            me.showError(err.data.error_message);      
             console.log(err);
         });
     }

@@ -5,7 +5,8 @@ var development = {
 	API_2LEDGER : global.process.env.API_2LEDGER || '2ledger-api-dev-teste.azurewebsites.net',
 	API_2LEDGER_TOKEN : global.process.env.API_2LEDGER_TOKEN || '.',
 	API_2LEDGER_SAMPLE_ID_NETWORK : '5bd3f8f0be308241cae57134',
-	API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID : global.process.env.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID || '5bd3f8fbbe308241cae57136'
+	API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID : global.process.env.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID || '5bd3f8fbbe308241cae57136',
+	API_2LEDGER_BASIC_LOGIN : global.process.env.API_BASIC_LOGIN_2LEDGER || 'YWRtX1VzZXJNYW5hZ2VyQGdtYWlsLmNvbToxMjM0NTY='
 };
 
 var production = {
@@ -15,7 +16,8 @@ var production = {
 	API_2LEDGER : global.process.env.API_2LEDGER,
 	API_2LEDGER_TOKEN : global.process.env.API_2LEDGER_TOKEN,
 	API_2LEDGER_SAMPLE_ID_NETWORK : '5bd3f8f0be308241cae57134',
-	API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID : global.process.env.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID || '5bd3f8fbbe308241cae57136'
+	API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID : global.process.env.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID || '5bd3f8fbbe308241cae57136',
+	API_2LEDGER_BASIC_LOGIN : global.process.env.API_BASIC_LOGIN_2LEDGER || 'YWRtX1VzZXJNYW5hZ2VyQGdtYWlsLmNvbToxMjM0NTY='
 };
 
 exports.Config = global.process.env.NODE_ENV === 'production' ? production : development;
