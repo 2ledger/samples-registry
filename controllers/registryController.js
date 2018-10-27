@@ -167,7 +167,7 @@ module.exports = function (app) {
 			value.dateRegister = new Date();
 
 			var obj = {key:req.body.id, value:value};
-			chamadaPOST('/entities/' + global.cfg.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID + '/records', obj).then(d => {
+			chamadaPOST('/networks/' + global.cfg.API_2LEDGER_SAMPLE_ID_NETWORK + '/entities/' + global.cfg.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID + '/records', obj).then(d => {
 				res.send(JSON.parse(d).response);
 			})
 		},
@@ -179,7 +179,7 @@ module.exports = function (app) {
 		searchDocument: function (req, res) {
 			var hash = req.body.document;
 
-			chamadaGET('/records/' + encodeURIComponent(hash)).then(d => {
+			chamadaGET('/networks/' + global.cfg.API_2LEDGER_SAMPLE_ID_NETWORK + '/entities/' + global.cfg.API_2LEDGER_SAMPLE_CLIENT_ENTITY_ID + '/records/' + encodeURIComponent(hash)).then(d => {
 				var client = JSON.parse(d);
 
 				if (client.success == 'false')
